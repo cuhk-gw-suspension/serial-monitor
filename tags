@@ -1,0 +1,107 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/mnt/f/OneDrive - The Chinese University of Hong Kong/intern/21summer/serial-monitor/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/04a983bf/
+%	docs/Makefile	/^%: Makefile$/;"	t
+Added	CHANGELOG.md	/^### Added$/;"	S	section:Changelog""[0.0.0] - 2020-09-21
+BUILDDIR	docs/Makefile	/^BUILDDIR      = build$/;"	m
+BUILDDIR	docs/make.bat	/^set BUILDDIR=build$/;"	v
+CHANGELOG	README.rst	/^CHANGELOG$/;"	S	section:Standards and Tools
+CHANGELOG	docs/source/for_developers.rst	/^CHANGELOG$/;"	S	section:Standards and Tools
+Changelog	CHANGELOG.md	/^# Changelog$/;"	c
+Cheat sheet	README.rst	/^Cheat sheet$/;"	s	chapter:For Developers
+Cheat sheet	docs/source/for_developers.rst	/^Cheat sheet$/;"	s	chapter:For Developers
+Coding style	README.rst	/^Coding style$/;"	S	section:Standards and Tools
+Coding style	docs/source/for_developers.rst	/^Coding style$/;"	S	section:Standards and Tools
+Dependencies	README.rst	/^Dependencies$/;"	s	chapter:Getting Started
+Dependencies	docs/source/getting_started.rst	/^Dependencies$/;"	s	chapter:Getting Started
+Documentation	README.rst	/^Documentation$/;"	S	section:Standards and Tools
+Documentation	docs/source/for_developers.rst	/^Documentation$/;"	S	section:Standards and Tools
+For Developers	README.rst	/^For Developers$/;"	c
+For Developers	docs/source/for_developers.rst	/^For Developers$/;"	c
+Getting Started	README.rst	/^Getting Started$/;"	c
+Getting Started	docs/source/getting_started.rst	/^Getting Started$/;"	c
+How to Contribute	README.rst	/^How to Contribute$/;"	c
+How to Contribute	docs/source/how_to_contribute.rst	/^How to Contribute$/;"	c
+Indices and tables	docs/source/index.rst	/^Indices and tables$/;"	c
+Install from source	README.rst	/^Install from source$/;"	s	chapter:Getting Started
+Install from source	docs/source/getting_started.rst	/^Install from source$/;"	s	chapter:Getting Started
+Library Reference	docs/source/library_reference.rst	/^Library Reference$/;"	c
+MAJOR	setup.py	/^MAJOR = 0$/;"	v
+MICRO	setup.py	/^MICRO = 0$/;"	v
+MINOR	setup.py	/^MINOR = 0$/;"	v
+My Python Library	README.rst	/^My Python Library$/;"	c
+My Python Library	docs/source/index.rst	/^My Python Library$/;"	c
+Note on installing dependencies	README.rst	/^Note on installing dependencies$/;"	S	section:Dependencies
+Note on installing dependencies	docs/source/getting_started.rst	/^Note on installing dependencies$/;"	S	section:Dependencies
+Optional	README.rst	/^Optional$/;"	S	section:Dependencies
+Optional	docs/source/getting_started.rst	/^Optional$/;"	S	section:Dependencies
+Packaging	README.rst	/^Packaging$/;"	S	section:Standards and Tools
+Packaging	docs/source/for_developers.rst	/^Packaging$/;"	S	section:Standards and Tools
+Required	README.rst	/^Required$/;"	S	section:Dependencies
+Required	docs/source/getting_started.rst	/^Required$/;"	S	section:Dependencies
+SOURCEDIR	docs/Makefile	/^SOURCEDIR     = source$/;"	m
+SOURCEDIR	docs/make.bat	/^set SOURCEDIR=source$/;"	v
+SPHINXBUILD	docs/Makefile	/^SPHINXBUILD   ?= sphinx-build$/;"	m
+SPHINXBUILD	docs/make.bat	/^	set SPHINXBUILD=sphinx-build$/;"	v
+SPHINXOPTS	docs/Makefile	/^SPHINXOPTS    ?=$/;"	m
+Sphinx	README.rst	/^Sphinx$/;"	S	section:Cheat sheet
+Sphinx	docs/source/for_developers.rst	/^Sphinx$/;"	S	section:Cheat sheet
+Standards and Tools	README.rst	/^Standards and Tools$/;"	s	chapter:For Developers
+Standards and Tools	docs/source/for_developers.rst	/^Standards and Tools$/;"	s	chapter:For Developers
+VERSION	setup.py	/^VERSION = '%d.%d.%d'%(MAJOR,MINOR,MICRO)$/;"	v
+Versioning	README.rst	/^Versioning$/;"	S	section:Standards and Tools
+Versioning	docs/source/for_developers.rst	/^Versioning$/;"	S	section:Standards and Tools
+[0.0.0] - 2020-09-21	CHANGELOG.md	/^## [0.0.0] - 2020-09-21$/;"	s	chapter:Changelog
+[Unreleased]	CHANGELOG.md	/^## [Unreleased]$/;"	s	chapter:Changelog
+ani	src/plotter.py	/^ani = FuncAnimation(plt.gcf(), animate, interval=500)$/;"	v
+animate	src/plotter.py	/^def animate(i, fname="arduino_data.csv"):$/;"	f
+author	docs/source/conf.py	/^author = 'Tsang Terrence Tak Lun'$/;"	v
+codecov	README.rst	/^.. |codecov| image:: https:\/\/codecov.io\/gh\/terrencetec\/mypythonlibrary\/branch\/master\/gra/;"	d	subsection:Sphinx
+codecov	docs/source/index.rst	/^.. |codecov| image:: https:\/\/codecov.io\/gh\/terrencetec\/mypythonlibrary\/branch\/master\/gra/;"	d	chapter:My Python Library
+copyright	docs/source/conf.py	/^copyright = '2020, Tsang Terrence Tak Lun'$/;"	v
+end	docs/make.bat	/^:end$/;"	l
+exclude_patterns	docs/source/conf.py	/^exclude_patterns = []$/;"	v
+extensions	docs/source/conf.py	/^extensions = [$/;"	v
+get_nano_port	src/adaptUSBport.py	/^def get_nano_port():$/;"	f
+hello world	docs/source/library_reference.rst	/^hello world$/;"	s	chapter:Library Reference
+help	docs/Makefile	/^help:$/;"	t
+help	docs/make.bat	/^:help$/;"	l
+here	setup.py	/^here = pathlib.Path(__file__).parent.resolve()$/;"	v
+html_logo	docs/source/conf.py	/^html_logo = '_static\/logo.svg'$/;"	v
+html_static_path	docs/source/conf.py	/^html_static_path = ['_static']$/;"	v
+html_theme	docs/source/conf.py	/^html_theme = 'sphinx_rtd_theme'$/;"	v
+license	README.rst	/^.. |license| image:: https:\/\/img.shields.io\/github\/license\/terrencetec\/mypythonlibrary$/;"	d	subsection:Sphinx
+license	docs/source/index.rst	/^.. |license| image:: https:\/\/img.shields.io\/github\/license\/terrencetec\/mypythonlibrary$/;"	d	chapter:My Python Library
+log_serial_info	src/.ipynb_checkpoints/reader-checkpoint.py	/^def log_serial_info($/;"	f
+log_serial_info	src/log.py	/^def log_serial_info($/;"	f
+logo	README.rst	/^.. |logo| image:: docs\/source\/_static\/logo.svg$/;"	d	subsection:Sphinx
+logo	docs/source/index.rst	/^.. |logo| image:: docs\/source\/_static\/logo.svg$/;"	d	chapter:My Python Library
+long_description	setup.py	/^long_description = (here \/ 'README.rst').read_text(encoding='utf-8')$/;"	v
+main	src/clitools/.ipynb_checkpoints/print_hello_worlds-checkpoint.py	/^def main(args=None):$/;"	f
+main	src/clitools/print_hello_worlds.py	/^def main(args=None):$/;"	f
+master_doc	docs/source/conf.py	/^master_doc = 'index' # In case it's defaulted to another file.$/;"	v
+parser	src/clitools/.ipynb_checkpoints/print_hello_worlds-checkpoint.py	/^def parser():$/;"	f
+parser	src/clitools/print_hello_worlds.py	/^def parser():$/;"	f
+plt	src/plotter.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
+print_serial_info	src/.ipynb_checkpoints/reader-checkpoint.py	/^def print_serial_info(port_path=get_nano_port(), baud=1_000_000, timeout=1):$/;"	f
+print_serial_info	src/log.py	/^def print_serial_info(port_path=get_nano_port(), baud=1_000_000, timeout=1):$/;"	f
+project	docs/source/conf.py	/^project = 'mypythonlibrary'$/;"	v
+release	README.rst	/^.. |release| image:: https:\/\/img.shields.io\/github\/v\/release\/terrencetec\/mypythonlibrary?/;"	d	subsection:Sphinx
+release	docs/source/conf.py	/^release = '0.0.0'$/;"	v
+release	docs/source/index.rst	/^.. |release| image:: https:\/\/img.shields.io\/github\/v\/release\/terrencetec\/mypythonlibrary?/;"	d	chapter:My Python Library
+rtd	README.rst	/^.. |rtd| image:: https:\/\/readthedocs.org\/projects\/mypythonlibrary\/badge\/?version=latest$/;"	d	subsection:Sphinx
+rtd	docs/source/index.rst	/^.. |rtd| image:: https:\/\/readthedocs.org\/projects\/mypythonlibrary\/badge\/?version=latest$/;"	d	chapter:My Python Library
+templates_path	docs/source/conf.py	/^templates_path = ['_templates']$/;"	v
+test_helloworld	tests/test_helloworld.py	/^def test_helloworld():$/;"	f
+travis-ci	README.rst	/^.. |travis-ci| image:: https:\/\/travis-ci.com\/terrencetec\/mypythonlibrary.svg?branch=master$/;"	d	subsection:Sphinx
+travis-ci	docs/source/index.rst	/^.. |travis-ci| image:: https:\/\/travis-ci.com\/terrencetec\/mypythonlibrary.svg?branch=master$/;"	d	chapter:My Python Library
+website	README.rst	/^.. |website| image:: https:\/\/img.shields.io\/badge\/website-mypythonlibrary-blue.svg$/;"	d	subsection:Sphinx
+website	docs/source/index.rst	/^.. |website| image:: https:\/\/img.shields.io\/badge\/website-mypythonlibrary-blue.svg$/;"	d	chapter:My Python Library

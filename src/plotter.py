@@ -19,7 +19,7 @@ def animate(i, fname="arduino_data.csv"):
     else:
         data = data.T
         labels=["column %d"%(i+1) for i in range(len(data))]
-    
+
     plt.cla()
 
     for i in range(len(data)):
@@ -29,3 +29,7 @@ def animate(i, fname="arduino_data.csv"):
     plt.tight_layout()
 
 ani = FuncAnimation(plt.gcf(), animate, interval=500)
+
+plt.tight_layout()
+plt.show()
+
