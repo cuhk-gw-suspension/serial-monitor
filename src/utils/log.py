@@ -2,7 +2,7 @@ import serial
 import time
 import os
 import traceback
-from adaptUSBport import get_nano_port
+from .adaptUSBport import get_nano_port
 
 
 
@@ -85,5 +85,3 @@ def print_serial_info(port_path=get_nano_port(), baud=1_000_000, timeout=1):
                 line = line + "\n"
             print(line.decode('UTF-8'), end="")
 
-if __name__=="__main__":
-    log_serial_info(100, "arduino_data.csv")
