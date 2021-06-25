@@ -34,7 +34,7 @@ def log_serial_info(
 
     dir_path, *_ = os.path.split(file_path)
 
-    if not os.path.exists(dir_path) and dir_path is None:
+    if not os.path.exists(dir_path) and dir_path is not None:
         os.makedirs(dir_path)
 
     try:

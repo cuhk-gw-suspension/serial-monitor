@@ -8,7 +8,7 @@ from matplotlib.animation import FuncAnimation
 
 def array2d_animate(arr, labels, x_axis=False):
     '''Display plots of data from a constanly updating array
-    
+
     Parameters:
     -----------
     arr: 1d or 2d array
