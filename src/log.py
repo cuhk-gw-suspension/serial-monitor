@@ -1,20 +1,27 @@
 import serial
 import time
 import os
-import csv
+import traceback
 from .adaptUSBport import get_nano_port
 
+
+
+
 def log_serial_info(
-        fieldnames,
-        file_path="arduino_data.csv",
-        port_path=get_nano_port(), 
-        baud=1_000_000, 
+        elapsed_time,
+        file_path,
+        port_path=get_nano_port(),
+        baud=1_000_000,
         timeout=1):
     '''
-    Read serial data for an given time from Arduino and export to a tsv.
+    Log serial data for an given time from Arduino and export to a csv.
 
     Parameters
     ------------
+    elapsed_time: float or int
+                elapsed time for reading the serial print, in seconds.
+    file_path: string
+                path to file storing serial readings.
     port_path: string, optional
                 path to the Arduino port, default to nano 33 ble port path.
     baud: int, optional
@@ -26,27 +33,32 @@ def log_serial_info(
     if not os.path.exists(port_path):
         raise IOError("Could not find the specified Arduino port")
 
-    if timeout is None:
-        raise Exception('timeout must be specified.')
-
-    dir_path, filename = os.path.split(file_path)
+    dir_path, *_ = os.path.split(file_path)
 
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
 
-    with open(file_path, 'w') as csv_file:
-        csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-        csv_writer.writeheader()
+    try:
+        mycsv = open(file_path, 'w')
+    except IOError:
+        print("failed to open file")
+        traceback.print_exc()
+    except:
+        print(repr(Exception))
+        traceback.print_exc()
 
+    if timeout is None:
+        raise Exception('timeout must be specified.')
+
+    print('starting trial, ETA: %.2f seconds'%elapsed_time)
+
+    start = time.perf_counter()
     with serial.Serial(port_path, baud, timeout=timeout) as ser:
-        while True:
-            line = ser.readline().decode('UTF-8')
-            if "\n" not in line:
-                line = line + "\n"
-            print(line, end="")
-
-            with open(file_path, 'a') as csv_file:
-                csv_file.write(line)
+        while (time.perf_counter() - start < elapsed_time):
+            line = ser.readline()
+            mycsv.write(line.decode('UTF-8'))
+    mycsv.close()
+    print("data logged successfully.")
 
 
 
