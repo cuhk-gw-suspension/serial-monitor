@@ -10,11 +10,19 @@ def get_nano_port():
     ]
 
     if not arduino_ports:
-        raise IOError("No Arduino found")
+        raise IOError("No Arduino Nano 33 BLE found")
     if len(arduino_ports) > 1:
-        warnings.warn("Multiple Nano 33 ble found - returning the first")
+        warnings.warn("Multiple Arduino Nano 33 BLE found - returning the first")
 
     return arduino_ports[0]
+
+def get_serial_port():
+    device = [p for p in serial.tools.list_ports.comports() if "n/a" not in p.description]
+
+    if not device:
+        raise IOError("No serial device found")
+
+    return device
 
 if __name__ == "__main__":
     print(get_nano_port())

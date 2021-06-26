@@ -32,13 +32,14 @@ setup(
     long_description=long_description,  # Optional
     long_description_content_type='text/x-rst',  # Optional (see note above)
     url='https://github.com/terrencetec/mypythonlibrary',  # Optional
-    author='TSANG Terrence Tak Lun',  # Optional
-    author_email='terrencetec@gmail.com',  # Optional
+    author='LAM Yee Ching',  # Optional
     keywords='sample, setuptools, development',  # Optional
     packages=find_packages(),
     python_requires='>=3.5, <4',
     install_requires=[
         'numpy',
+        'matplotlib'
+        'pyserial'
     ], # Dependencies here, Optional
     # List additional groups of dependencies here (e.g. development
     # dependencies). Users will be able to install these using the "extras"

@@ -54,7 +54,7 @@ def log_serial_info(
     start = time.perf_counter()
     with serial.Serial(port_path, baud, timeout=timeout) as ser:
         while (time.perf_counter() - start < elapsed_time):
-            line = ser.readline()
+            line = ser.readlines()
             mycsv.write(line.decode('UTF-8'))
     mycsv.close()
     print("data logged successfully.")
