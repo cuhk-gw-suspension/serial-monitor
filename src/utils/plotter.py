@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
 
-def array2d_animate(arr, labels, x_axis=False):
+def array2d_animate(fig, arr, labels, x_axis=False):
     """Display plots of data from a constantly updating array
 
     Parameters:
@@ -40,7 +40,7 @@ def array2d_animate(arr, labels, x_axis=False):
         plt.legend()
         plt.tight_layout()
 
-    ani = FuncAnimation(plt.gcf(), _animate, interval=500)
+    FuncAnimation(fig, _animate, interval=500)
 
     plt.tight_layout()
     plt.show()
