@@ -3,21 +3,29 @@ from utils.adaptUSBport import get_serial_port
 from matplotlib.figure import Figure
 from matplotlib import style
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
+import numpy as np
+import serial
+from time import sleep
 
 import sys
+
 if sys.version_info[0] < 3:
     import Tkinter as tk
 else:
     import tkinter as tk
+
 
 class Application(tk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
         self.master = master
         self.master.title("Real Time Serial Data Plot")
-        self.master.geometry("800x500")
+        self.master.geometry("600x500")
         self.master.configure(background="grey")
         self.pack()
+
+        self.current_port = None
+        self.current_baud = None
 
         self.create_graphs()
         self.create_widgets()
@@ -57,7 +65,6 @@ class Application(tk.Frame):
         for baud in self.baudlist:
             baudmenu.add_command(label=baud, command=lambda x=baud: self._setbaud(x))
 
-
         menubar.add_command(label="Refresh", command=self.refresh_portlist)
 
         # scrollbar = tk.Scrollbar(self)
@@ -72,32 +79,54 @@ class Application(tk.Frame):
         #                                 command=self.refresh_portlist)
         # refresh_button.grid(row=1, column=0)
 
-    def _setbaud(self, baud):
-        self.current_baud = baud
-        print("set baud to", self.current_baud)
-
-    def _setport(self, port):
-        self.current_port = port
-        print("set port to", self.current_port)
-        print("selected device: ",
-              self.current_port.device,
-              " | ",
-              self.current_port.description)
-        self.ax.set_title("Serial Data: " + self.current_port.name)
-
     def refresh_portlist(self):
         print("\nrefreshing serial ports...")
         self.portmenu.delete(0, self.portmenu.index(tk.END))
         try:
             self.portlist = get_serial_port()
             for p in self.portlist:
-                self.portmenu.add_command(label= p.name + " | " + p.description,
+                self.portmenu.add_command(label=p.name + " | " + p.description,
                                           command=lambda x=p.device: self._setport(x))
+            self._setport(self.portlist[0])
+
         except IOError as e:
             self.portmenu.add_separator()
             self.portmenu.add_command(label="empty", command=None)
             self.ax.set_title("Serial Data:" + str(e), size=16)
-            print(e)
+            print(repr(e))
+
+    def update_serial_config(self):
+        self.ser = serial.Serial(self.current_port, self.current_baud, timeout=1)
+        self._data_holder = None
+        self._read_serial()
+
+    def _setbaud(self, baud):
+        self.current_baud = baud
+        print("set baud to", self.current_baud)
+        self.update_serial_config()
+
+    def _setport(self, port):
+        self.current_port = port
+        print("selected device: ",
+              self.current_port.device,
+              " | ",
+              self.current_port.description)
+        self.ax.set_title("Serial Data: " + self.current_port.name)
+        self.update_serial_config()
+
+    def _read_serial(self):
+        try:
+            line = self.ser.readline().decode("utf-8")
+            _temp = np.array(line.split(","), dtype=np.float64)
+            if self._data_holder is None:
+                self._data_holder = _temp
+            else:
+                np.vstack((self._data_holder, _temp))
+            self.master.after(0, self._read_serial)
+        except Exception:
+            self.master.after(1000, self._read_serial)
+
+
 
 
 root = tk.Tk()

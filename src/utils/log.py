@@ -2,14 +2,14 @@ import serial
 import time
 import os
 import traceback
-from .adaptUSBport import get_nano_port
+from adaptUSBport import get_nano_port
 
 
 
 def log_serial_info(
         elapsed_time,
         file_path,
-        port_path=get_nano_port(),
+        port_path=None,
         baud=1_000_000,
         timeout=1):
     '''
@@ -29,6 +29,9 @@ def log_serial_info(
                 timeout for reading the serial print, in seconds.
 
     '''
+    if port_path is None:
+        port_path = get_nano_port()
+
     if not os.path.exists(port_path):
         raise IOError("Could not find the specified Arduino port")
 
@@ -61,7 +64,7 @@ def log_serial_info(
 
 
 
-def print_serial_info(port_path=get_nano_port(), baud=1_000_000, timeout=1):
+def print_serial_info(port_path=None, baud=1_000_000, timeout=1):
     '''
     Read serial data indefinitely from Arduino device.
 
@@ -75,6 +78,9 @@ def print_serial_info(port_path=get_nano_port(), baud=1_000_000, timeout=1):
                 timeout for reading the serial print, in seconds.
 
     '''
+    if port_path is None:
+        port_path = get_nano_port()
+
     if timeout is None:
         raise Exception('timeout must be specified.')
 
@@ -84,4 +90,3 @@ def print_serial_info(port_path=get_nano_port(), baud=1_000_000, timeout=1):
             if "\n" not in line:
                 line = line + "\n"
             print(line.decode('UTF-8'), end="")
-
