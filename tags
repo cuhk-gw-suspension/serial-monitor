@@ -4,13 +4,15 @@
 !_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
 !_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
 !_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
-!_TAG_PROC_CWD	/mnt/f/OneDrive - The Chinese University of Hong Kong/intern/21summer/serial-monitor/	//
+!_TAG_PROC_CWD	/home/lamyc627/code/serial-monitor/	//
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	5.9.0	/04a983bf/
 %	docs/Makefile	/^%: Makefile$/;"	t
 Added	CHANGELOG.md	/^### Added$/;"	S	section:Changelog""[0.0.0] - 2020-09-21
+Application	src/experimental/gui.py	/^class Application(tk.Frame):$/;"	c
+Application	src/monitor.py	/^class Application(tk.Frame):$/;"	c
 BUILDDIR	docs/Makefile	/^BUILDDIR      = build$/;"	m
 BUILDDIR	docs/make.bat	/^set BUILDDIR=build$/;"	v
 CHANGELOG	README.rst	/^CHANGELOG$/;"	S	section:Standards and Tools
@@ -61,16 +63,31 @@ Versioning	README.rst	/^Versioning$/;"	S	section:Standards and Tools
 Versioning	docs/source/for_developers.rst	/^Versioning$/;"	S	section:Standards and Tools
 [0.0.0] - 2020-09-21	CHANGELOG.md	/^## [0.0.0] - 2020-09-21$/;"	s	chapter:Changelog
 [Unreleased]	CHANGELOG.md	/^## [Unreleased]$/;"	s	chapter:Changelog
-ani	src/plotter.py	/^ani = FuncAnimation(plt.gcf(), animate, interval=500)$/;"	v
-animate	src/plotter.py	/^def animate(i, fname="arduino_data.csv"):$/;"	f
+__init__	src/experimental/gui.py	/^    def __init__(self, master=None):$/;"	m	class:Application
+__init__	src/monitor.py	/^    def __init__(self, master=None):$/;"	m	class:Application
+_animate	src/utils/plotter.py	/^    def _animate(i, fname=fname):$/;"	f	function:csv_animate	file:
+_animate	src/utils/plotter.py	/^    def _animate(labels=labels, x_axis=x_axis):$/;"	f	function:array2d_animate	file:
+_read_serial	src/monitor.py	/^    def _read_serial(self):$/;"	m	class:Application
+_setbaud	src/monitor.py	/^    def _setbaud(self, baud):$/;"	m	class:Application
+_setport	src/monitor.py	/^    def _setport(self, port):$/;"	m	class:Application
+_update_serial_config	src/monitor.py	/^    def _update_serial_config(self):$/;"	m	class:Application
+app	src/experimental/gui.py	/^app = Application(master=root)$/;"	v
+app	src/monitor.py	/^app = Application(master=root)$/;"	v
+array2d_animate	src/utils/plotter.py	/^def array2d_animate(fig, arr, labels, x_axis=False):$/;"	f
 author	docs/source/conf.py	/^author = 'Tsang Terrence Tak Lun'$/;"	v
 codecov	README.rst	/^.. |codecov| image:: https:\/\/codecov.io\/gh\/terrencetec\/mypythonlibrary\/branch\/master\/gra/;"	d	subsection:Sphinx
 codecov	docs/source/index.rst	/^.. |codecov| image:: https:\/\/codecov.io\/gh\/terrencetec\/mypythonlibrary\/branch\/master\/gra/;"	d	chapter:My Python Library
 copyright	docs/source/conf.py	/^copyright = '2020, Tsang Terrence Tak Lun'$/;"	v
+create_graphs	src/experimental/gui.py	/^    def create_graphs(self):$/;"	m	class:Application
+create_graphs	src/monitor.py	/^    def create_graphs(self):$/;"	m	class:Application
+create_widgets	src/experimental/gui.py	/^    def create_widgets(self):$/;"	m	class:Application
+create_widgets	src/monitor.py	/^    def create_widgets(self):$/;"	m	class:Application
+csv_animate	src/utils/plotter.py	/^def csv_animate(fname="arduino_data.csv"):$/;"	f
 end	docs/make.bat	/^:end$/;"	l
 exclude_patterns	docs/source/conf.py	/^exclude_patterns = []$/;"	v
 extensions	docs/source/conf.py	/^extensions = [$/;"	v
-get_nano_port	src/adaptUSBport.py	/^def get_nano_port():$/;"	f
+get_nano_port	src/utils/adaptUSBport.py	/^def get_nano_port():$/;"	f
+get_serial_port	src/utils/adaptUSBport.py	/^def get_serial_port():$/;"	f
 hello world	docs/source/library_reference.rst	/^hello world$/;"	s	chapter:Library Reference
 help	docs/Makefile	/^help:$/;"	t
 help	docs/make.bat	/^:help$/;"	l
@@ -80,27 +97,31 @@ html_static_path	docs/source/conf.py	/^html_static_path = ['_static']$/;"	v
 html_theme	docs/source/conf.py	/^html_theme = 'sphinx_rtd_theme'$/;"	v
 license	README.rst	/^.. |license| image:: https:\/\/img.shields.io\/github\/license\/terrencetec\/mypythonlibrary$/;"	d	subsection:Sphinx
 license	docs/source/index.rst	/^.. |license| image:: https:\/\/img.shields.io\/github\/license\/terrencetec\/mypythonlibrary$/;"	d	chapter:My Python Library
-log_serial_info	src/.ipynb_checkpoints/reader-checkpoint.py	/^def log_serial_info($/;"	f
-log_serial_info	src/log.py	/^def log_serial_info($/;"	f
+listbox_callback	src/experimental/gui.py	/^    def listbox_callback(self):$/;"	m	class:Application
+log_serial_info	src/utils/log.py	/^def log_serial_info($/;"	f
 logo	README.rst	/^.. |logo| image:: docs\/source\/_static\/logo.svg$/;"	d	subsection:Sphinx
 logo	docs/source/index.rst	/^.. |logo| image:: docs\/source\/_static\/logo.svg$/;"	d	chapter:My Python Library
 long_description	setup.py	/^long_description = (here \/ 'README.rst').read_text(encoding='utf-8')$/;"	v
-main	src/clitools/.ipynb_checkpoints/print_hello_worlds-checkpoint.py	/^def main(args=None):$/;"	f
-main	src/clitools/print_hello_worlds.py	/^def main(args=None):$/;"	f
 master_doc	docs/source/conf.py	/^master_doc = 'index' # In case it's defaulted to another file.$/;"	v
-parser	src/clitools/.ipynb_checkpoints/print_hello_worlds-checkpoint.py	/^def parser():$/;"	f
-parser	src/clitools/print_hello_worlds.py	/^def parser():$/;"	f
-plt	src/plotter.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
-print_serial_info	src/.ipynb_checkpoints/reader-checkpoint.py	/^def print_serial_info(port_path=get_nano_port(), baud=1_000_000, timeout=1):$/;"	f
-print_serial_info	src/log.py	/^def print_serial_info(port_path=get_nano_port(), baud=1_000_000, timeout=1):$/;"	f
+np	src/monitor.py	/^import numpy as np$/;"	I	nameref:module:numpy
+np	src/utils/plotter.py	/^import numpy as np$/;"	I	nameref:module:numpy
+plot_graphs	src/monitor.py	/^    def plot_graphs(self):$/;"	m	class:Application
+plt	src/utils/plotter.py	/^import matplotlib.pyplot as plt$/;"	I	nameref:module:matplotlib.pyplot
+print_serial_info	src/utils/log.py	/^def print_serial_info(port_path=None, baud=1_000_000, timeout=1):$/;"	f
 project	docs/source/conf.py	/^project = 'mypythonlibrary'$/;"	v
+refresh_portlist	src/monitor.py	/^    def refresh_portlist(self):$/;"	m	class:Application
 release	README.rst	/^.. |release| image:: https:\/\/img.shields.io\/github\/v\/release\/terrencetec\/mypythonlibrary?/;"	d	subsection:Sphinx
 release	docs/source/conf.py	/^release = '0.0.0'$/;"	v
 release	docs/source/index.rst	/^.. |release| image:: https:\/\/img.shields.io\/github\/v\/release\/terrencetec\/mypythonlibrary?/;"	d	chapter:My Python Library
+root	src/experimental/gui.py	/^root = tk.Tk()$/;"	v
+root	src/monitor.py	/^root = tk.Tk()$/;"	v
 rtd	README.rst	/^.. |rtd| image:: https:\/\/readthedocs.org\/projects\/mypythonlibrary\/badge\/?version=latest$/;"	d	subsection:Sphinx
 rtd	docs/source/index.rst	/^.. |rtd| image:: https:\/\/readthedocs.org\/projects\/mypythonlibrary\/badge\/?version=latest$/;"	d	chapter:My Python Library
 templates_path	docs/source/conf.py	/^templates_path = ['_templates']$/;"	v
 test_helloworld	tests/test_helloworld.py	/^def test_helloworld():$/;"	f
+tk	src/experimental/gui.py	/^import tkinter as tk$/;"	I	nameref:module:tkinter
+tk	src/monitor.py	/^    import Tkinter as tk$/;"	I	nameref:module:Tkinter
+tk	src/monitor.py	/^    import tkinter as tk$/;"	I	nameref:module:tkinter
 travis-ci	README.rst	/^.. |travis-ci| image:: https:\/\/travis-ci.com\/terrencetec\/mypythonlibrary.svg?branch=master$/;"	d	subsection:Sphinx
 travis-ci	docs/source/index.rst	/^.. |travis-ci| image:: https:\/\/travis-ci.com\/terrencetec\/mypythonlibrary.svg?branch=master$/;"	d	chapter:My Python Library
 website	README.rst	/^.. |website| image:: https:\/\/img.shields.io\/badge\/website-mypythonlibrary-blue.svg$/;"	d	subsection:Sphinx
