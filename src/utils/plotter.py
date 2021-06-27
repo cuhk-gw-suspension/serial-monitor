@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
 
-def array2d_animate(fig, arr, labels, x_axis=False):
+def array2d_animate(fig, arr, labels):
     """Display plots of data from a constantly updating array
 
     Parameters:
@@ -20,24 +20,13 @@ def array2d_animate(fig, arr, labels, x_axis=False):
         If True, treat the 1st column as the common x_axis.
         If is set to True with arr being 1d array, overide to False.
     """
+    artist = plt.plot(arr)
+    plt.legend(artist, labels)
 
-    def _animate(labels=labels, x_axis=x_axis):
-        data = arr
-        if len(arr.shape) == 1:
-            x_axis = False
+    def _animate(i):
 
-        data = data.T
-
-        if x_axis:
-            xvalue = data[0]
-            data = data[1:]
-            for i in range(len(data)):
-                plt.plot(xvalue, data[i], labels[i])
-        else:
-            for i in range(len(data)):
-                plt.plot(data[i], labels[i])
-
-        plt.legend()
+        artist.set_ydata(arr)
+        plt.legend(artist, labels)
         plt.tight_layout()
 
     FuncAnimation(fig, _animate, interval=500)

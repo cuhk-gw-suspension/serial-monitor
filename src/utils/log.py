@@ -86,7 +86,8 @@ def print_serial_info(port_path=None, baud=1_000_000, timeout=1):
 
     with serial.Serial(port_path, baud, timeout=timeout) as ser:
         while True:
-            line = ser.readline()
-            if "\n" not in line:
-                line = line + "\n"
-            print(line.decode('UTF-8'), end="")
+            line = ser.readline().decode()
+            print(line, end="")
+
+if __name__=="__main__":
+    print_serial_info()
