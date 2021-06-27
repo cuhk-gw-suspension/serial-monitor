@@ -148,7 +148,7 @@ class Application(tk.Frame):
             self.master.after(1000, self._read_serial)
 
 
-
-root = tk.Tk()
-app = Application(master=root)
-app.mainloop()
+if __name__=="__main__":
+    root = tk.Tk()
+    app = Application(master=root)
+    app.mainloop()
