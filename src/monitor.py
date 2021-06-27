@@ -5,7 +5,7 @@ from matplotlib import style
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 import numpy as np
 import serial
-from time import sleep
+from ast import literal_eval
 
 import sys
 
@@ -30,6 +30,7 @@ class Application(tk.Frame):
         self.create_graphs()
         self.create_widgets()
         self.refresh_portlist()
+        self.plot_graphs()
 
     def create_graphs(self):
         style.use("seaborn-bright")
@@ -95,7 +96,17 @@ class Application(tk.Frame):
             self.ax.set_title("Serial Data:" + str(e), size=16)
             print(repr(e))
 
-    def update_serial_config(self):
+    def plot_graphs(self):
+        try:
+            self.ax.cla()
+            for data in self._data_holder.T:
+                self.ax.plot(data, label=self.curve_label)
+                self.ax.legend()
+        except AttributeError:
+            pass
+        self.master.after(1000, self.plot_graphs)
+
+    def _update_serial_config(self):
         self.ser = serial.Serial(self.current_port, self.current_baud, timeout=1)
         self._data_holder = None
         self._read_serial()
@@ -103,7 +114,7 @@ class Application(tk.Frame):
     def _setbaud(self, baud):
         self.current_baud = baud
         print("set baud to", self.current_baud)
-        self.update_serial_config()
+        self._update_serial_config()
 
     def _setport(self, port):
         self.current_port = port
@@ -112,16 +123,25 @@ class Application(tk.Frame):
               " | ",
               self.current_port.description)
         self.ax.set_title("Serial Data: " + self.current_port.name)
-        self.update_serial_config()
+        self._update_serial_config()
 
     def _read_serial(self):
         try:
             line = self.ser.readline().decode("utf-8")
-            _temp = np.array(line.split(","), dtype=np.float64)
+            line = literal_eval(line)
+            if type(line) is tuple:
+                _temp = np.array(line, dtype=np.float64)
+                self.curve_label = ["column%d"%i for i in range(len(_temp))]
+
+            elif type(line) is dict:
+                _temp = np.fromiter(line.items(), count=len(line))
+                self.curve_label = np.fromiter(line.keys(), count=len(line))
+
             if self._data_holder is None:
                 self._data_holder = _temp
             else:
                 np.vstack((self._data_holder, _temp))
+
             self.master.after(0, self._read_serial)
         except Exception:
             self.master.after(1000, self._read_serial)
