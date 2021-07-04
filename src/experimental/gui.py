@@ -38,9 +38,26 @@ class Application(tk.Frame):
         self.canvas.get_tk_widget().pack(side=tk.RIGHT, fill=tk.Y)
         self.canvas.draw()
 
-    def listbox_callback(self):
-        pass
+    def _setbaud(self, baud):
+        self.current_baud = baud
+        print("set baud to", self.current_baud)
+        self._update_serial_config()
 
+    def _setport(self, port):
+        self.current_port = port
+        print("selected device: ",
+              self.current_port.device,
+              " | ",
+              self.current_port.description)
+        self._graph_title="Serial Data: " + self.current_port.name
+        self._update_serial_config()
+
+    def _update_serial_config(self):
+        """configure serial readline setting and clear data holded by the
+        program."""
+
+    def update_tasks(self):
+        pass
 
 root = tk.Tk()
 app = Application(master=root)
