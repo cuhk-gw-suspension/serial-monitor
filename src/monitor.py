@@ -6,7 +6,6 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolb
 import numpy as np
 import serial
 from ast import literal_eval
-import sys
 import tkinter as tk
 
 
@@ -73,7 +72,7 @@ class Application(tk.Frame):
         except IOError as e:
             self.portmenu.add_separator()
             self.portmenu.add_command(label="empty", command=None)
-            self.graph_title("Serial Data:" + str(e), size=16)
+            self._graph_title = "Serial Data:" + str(e)
             print(repr(e))
 
     def plot_graphs(self):
