@@ -31,8 +31,9 @@ setup(
     python_requires='>=3.5, <4',
     install_requires=[
         'numpy',
-        'matplotlib'
-        'pyserial'
+        'matplotlib',
+        'pyserial',
+        'tkinter'
     ], # Dependencies here, Optional
     # List additional groups of dependencies here (e.g. development
     # dependencies). Users will be able to install these using the "extras"
