@@ -12,4 +12,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - This CHANGELOG file to hopefully serve as an evolving example of a
   standardized open source project CHANGELOG.
 
-[0.0.0]: https://github.com/terrencetec/mypythonlibrary/releases/tag/v0.0.0
+[Unreleased]: https://github.com/cuhk-gw-suspension/serial-monitor.git
