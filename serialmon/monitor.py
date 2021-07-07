@@ -6,7 +6,6 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolb
 import numpy as np
 import serial
 from ast import literal_eval
-import sys
 import tkinter as tk
 
 
@@ -23,10 +22,10 @@ class Application(tk.Frame):
         self.current_baud = None
         self.MAX_DATA_LENGTH = 50000
 
-        self.create_graphs()     # create a figure to hold graphs 
-        self.create_widgets()    # create gui widgets
+        self.create_graphs()  # create a figure to hold graphs
+        self.create_widgets()  # create gui widgets
         self.refresh_portlist()  # refresh serial port info and choose first port to listen
-        self.plot_graphs()       # plot curves on the graph indefintely
+        self.plot_graphs()  # plot curves on the graph indefintely
 
     def create_graphs(self):
         style.use("seaborn-bright")
@@ -73,7 +72,7 @@ class Application(tk.Frame):
         except IOError as e:
             self.portmenu.add_separator()
             self.portmenu.add_command(label="empty", command=None)
-            self.graph_title("Serial Data:" + str(e), size=16)
+            self._graph_title = "Serial Data:" + str(e)
             print(repr(e))
 
     def plot_graphs(self):
@@ -116,7 +115,7 @@ class Application(tk.Frame):
               self.current_port.device,
               " | ",
               self.current_port.description)
-        self._graph_title="Serial Data: " + self.current_port.name
+        self._graph_title = "Serial Data: " + self.current_port.name
         self._update_serial_config()
 
     def _read_serial(self):
@@ -127,7 +126,7 @@ class Application(tk.Frame):
             line = literal_eval(line)
             if type(line) is tuple:
                 _temp = np.array(line, dtype=np.float64)
-                self.curve_label = ["column%d"%i for i in range(len(_temp))]
+                self.curve_label = ["column%d" % i for i in range(len(_temp))]
 
             elif type(line) is dict:
                 _temp = np.fromiter(line.items(), count=len(line))
@@ -148,7 +147,11 @@ class Application(tk.Frame):
             self.master.after(1000, self._read_serial)
 
 
-if __name__=="__main__":
+def main():
     root = tk.Tk()
     app = Application(master=root)
     app.mainloop()
+
+
+if __name__ == "__main__":
+    main()

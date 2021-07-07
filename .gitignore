@@ -131,3 +131,7 @@ dmypy.json
 # vim undo file and swap file
 .*.un~
 .*.sw?
+
+# jupyter notebook
+.ipynb_checkpoints/
+*.ipynb

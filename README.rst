@@ -1,23 +1,21 @@
 |logo|
 
-*One-line description here!*
+*Re-implementing Arduino serial monitor using Python*
 
 |website| |release| |rtd| |license| |travis-ci| |codecov|
 
-My Python Library
-=================
+Serial Monitor
+==============
 
-This is a template for creating new python library. Here are some descriptions!
+Read Arduino serial outputs.
 
 **features**
 
-* print Hello World!
-* print many Hello Worlds!
-* command line tools for printing a lot of Hello Worlds!
+* Print serial outputs
 
-**Documentation**: https://mypythonlibrary.readthedocs.io
+**Documentation**: https://serial-monitor.readthedocs.io
 
-**Repository**: https://github.com/terrencetec/mypythonlibrary
+**Repository**: https://github.com/cuhk-gw-suspension/serial-monitor
 
 .. contents::
    :depth: 2
@@ -30,43 +28,22 @@ Dependencies
 
 Required
 ^^^^^^^^
-* Package 1
-* Package 2
-* Package 3
+* NumPy
+* Matplotlib
+* pySerial
 
 Optional
 ^^^^^^^^
-* Package 4
+* None.
 
-Note on installing dependencies
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-In principle, if you are using :code:`pip`, you don't have to install
-dependencies beforehand. When you install this package, :code`pip` will
-automatically install the required libraries. However if you are using Conda
-it is best to use its own package manager and not pip unless absolutely
-necessary.
-
-If you use conda:
-
-.. code:: bash
-
-   conda install -c conda-forge package1 package2
-
-Now, let's say package 3 is not available, then we can use pip. But,
-be sure to use :code:`which pip` to check if we are using the pip installed
-on the conda environment and not the global one.
-
-.. code:: bash
-
-   pip install package3
 
 Install from source
 -------------------
 
 .. code:: bash
 
-   git clone https://github.com/terrencetec/mypythonlibrary.git
-   cd mypythonlibrary
+   git clone https://github.com/cuhk-gw-suspension/serial-monitor.git
+   cd serial-monitor
    pip install .
 
 How to Contribute
@@ -130,28 +107,28 @@ Open index.html with a browser (if this was set as the first page).
 
 .. |logo| image:: docs/source/_static/logo.svg
     :alt: Logo
-    :target: https://github.com/terrencetec/mypythonlibrary
+    :target: https://github.com/cuhk-gw-suspension/serial-monitor
 
-.. |website| image:: https://img.shields.io/badge/website-mypythonlibrary-blue.svg
+.. |website| image:: https://img.shields.io/badge/website-serial-monitor-blue.svg
     :alt: Website
-    :target: https://github.com/terrencetec/mypythonlibrary
+    :target: https://github.com/cuhk-gw-suspension/serial-monitor
 
-.. |release| image:: https://img.shields.io/github/v/release/terrencetec/mypythonlibrary?include_prereleases
+.. |release| image:: https://img.shields.io/github/v/release/cuhk-gw-suspension/serial-monitor?include_prereleases
    :alt: Release
-   :target: https://github.com/terrencetec/mypythonlibrary/releases
+   :target: https://github.com/cuhk-gw-suspension/serial-monitor/releases
+..
+  .. |rtd| image:: https://readthedocs.org/projects/serial-monitor/badge/?version=latest
+     :alt: Read the Docs
+     :target: https://serial-monitor.readthedocs.io/
 
-.. |rtd| image:: https://readthedocs.org/projects/mypythonlibrary/badge/?version=latest
-   :alt: Read the Docs
-   :target: https://mypythonlibrary.readthedocs.io/
+  .. |license| image:: https://img.shields.io/github/license/cuhk-gw-suspension/serial-monitor
+      :alt: License
+      :target: https://github.com/cuhk-gw-suspension/serial-monitor/blob/master/LICENSE
 
-.. |license| image:: https://img.shields.io/github/license/terrencetec/mypythonlibrary
-    :alt: License
-    :target: https://github.com/terrencetec/mypythonlibrary/blob/master/LICENSE
+  .. |travis-ci| image:: https://travis-ci.com/cuhk-gw-suspension/serial-monitor.svg?branch=master
+      :alt: travis-ci
+      :target: https://travis-ci.com/cuhk-gw-suspension/serial-monitor
 
-.. |travis-ci| image:: https://travis-ci.com/terrencetec/mypythonlibrary.svg?branch=master
-    :alt: travis-ci
-    :target: https://travis-ci.com/terrencetec/mypythonlibrary
-
-.. |codecov| image:: https://codecov.io/gh/terrencetec/mypythonlibrary/branch/master/graph/badge.svg?token=NMEBAYFE2N
-    :alt: codecov
-    :target: https://codecov.io/gh/terrencetec/mypythonlibrary
+  .. |codecov| image:: https://codecov.io/gh/cuhk-gw-suspension/serial-monitor/branch/master/graph/badge.svg?token=NMEBAYFE2N
+      :alt: codecov
+      :target: https://codecov.io/gh/cuhk-gw-suspension/serial-monitor
