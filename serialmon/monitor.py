@@ -1,5 +1,5 @@
 from utils.plotter import array2d_animate
-from utils.adaptUSBport import get_serial_port
+from utils.adaptUSBport import get_serial_device
 from matplotlib.figure import Figure
 from matplotlib import style
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
@@ -63,7 +63,7 @@ class Application(tk.Frame):
         print("\nrefreshing serial ports...")
         self.portmenu.delete(0, self.portmenu.index(tk.END))
         try:
-            self.portlist = get_serial_port()
+            self.portlist = get_serial_device()
             for p in self.portlist:
                 self.portmenu.add_command(label=p.name + " | " + p.description,
                                           command=lambda x=p: self._setport(x))
@@ -88,7 +88,7 @@ class Application(tk.Frame):
             self.ax.set_title(self._graph_title)
             self.ax.set_xlabel("sample")
             self.canvas.draw()
-        except AttributeError:
+        except (AttributeError, ValueError):
             pass
 
         self.master.after(1000, self.plot_graphs)
@@ -143,7 +143,7 @@ class Application(tk.Frame):
 
             self.master.after(0, self._read_serial)
         except Exception:
-            print("waiting data")
+            print("waiting data", end='\r')
             self.master.after(1000, self._read_serial)
 
 

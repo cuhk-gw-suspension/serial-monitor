@@ -89,5 +89,3 @@ def print_serial_info(port_path=None, baud=1_000_000, timeout=1):
             line = ser.readline().decode()
             print(line, end="")
 
-if __name__=="__main__":
-    print_serial_info()

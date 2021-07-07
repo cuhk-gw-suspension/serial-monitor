@@ -52,6 +52,7 @@ setup(
     # },
     entry_points={
         'console_scripts': [
+            # serialmon=
             # 'print-hello-worlds=mypythonlibrary.clitools.print_hello_worlds:main'
         ],
     }

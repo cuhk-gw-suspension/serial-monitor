@@ -16,7 +16,7 @@ def get_nano_port():
 
     return arduino_ports[0]
 
-def get_serial_port():
+def get_serial_device():
     device = [p for p in serial.tools.list_ports.comports() if "n/a" not in p.description]
 
     if not device:
@@ -24,6 +24,9 @@ def get_serial_port():
 
     return device
 
+def get_serial_port():
+    return [p.device for p in get_serial_device()]
+
 if __name__ == "__main__":
-    print(get_nano_port())
+    print(get_serial_port()[0])
     pass
