@@ -21,3 +21,10 @@ def listport():
 def read(port, baud, timeout):
     """Read and print information from a serial port indefinitely."""
     print_serial_info(port, baud, timeout)
+
+@cli.command()
+def gui():
+    """open gui with live plots of serial data (if data)"""
+    from serialmon.monitor import main
+
+    main()
