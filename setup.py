@@ -25,16 +25,15 @@ setup(
     long_description=long_description,  # Optional
     long_description_content_type='text/x-rst',  # Optional (see note above)
     url='https://github.com/cuhk-gw-suspension/serial-monitor',  # Optional
-    author='TSANG Terrence Tak Lun, LAM Yee Ching',  # Optional
-    keywords='sample, setuptools, development',  # Optional
+    author='LAM Yee Ching',  # Optional
+    keywords='setuptools, development',  # Optional
     packages=find_packages(include=["serial-monitor", "serial-monitor.*",
         "serialmon.*"]),
     python_requires='>=3.5, <4',
     install_requires=[
-        'numpy',
+        'numpy >= 1.1',
         'matplotlib',
         'pyserial',
-        'tkinter',
         'Click',
     ], # Dependencies here, Optional
     # List additional groups of dependencies here (e.g. development

@@ -1,4 +1,4 @@
-import Click
+import click
 
 from serialmon.utils.adaptUSBport import get_serial_device
 from serialmon.utils.log import print_serial_info
