@@ -27,13 +27,15 @@ setup(
     url='https://github.com/cuhk-gw-suspension/serial-monitor',  # Optional
     author='TSANG Terrence Tak Lun, LAM Yee Ching',  # Optional
     keywords='sample, setuptools, development',  # Optional
-    packages=find_packages(include=["serial-monitor", "serial-monitor.*"]),
+    packages=find_packages(include=["serial-monitor", "serial-monitor.*",
+        "serialmon.*"]),
     python_requires='>=3.5, <4',
     install_requires=[
         'numpy',
         'matplotlib',
         'pyserial',
-        'tkinter'
+        'tkinter',
+        'Click',
     ], # Dependencies here, Optional
     # List additional groups of dependencies here (e.g. development
     # dependencies). Users will be able to install these using the "extras"
@@ -52,8 +54,7 @@ setup(
     # },
     entry_points={
         'console_scripts': [
-            # serialmon=
-            # 'print-hello-worlds=mypythonlibrary.clitools.print_hello_worlds:main'
+            'serial=serialmon.clitools.tools:cli'
         ],
     }
     # List additional URLs that are relevant to your project as a dict.
