@@ -2,7 +2,7 @@ import serial
 import time
 import os
 import traceback
-from adaptUSBport import get_nano_port
+from .adaptUSBport import get_nano_port
 
 
 

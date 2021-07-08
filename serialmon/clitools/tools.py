@@ -10,12 +10,15 @@ def cli():
 @cli.command()
 def listport():
     """list all ports not with description 'n/a'."""
-    Click.echo("Path\t\t\tDescription")
-    for p in get_serial_device():
-        Click.echo("%s\t\t%s" % (p.name, p.description))
+    try:
+        click.echo("Path\t\t\tDescription")
+        for p in get_serial_device():
+            click.echo("%s\t\t%s" % (p.name, p.description))
+    except IOError as e:
+        click.echo(e)
 
 @cli.command()
-@click.option('-p', type=click.String, help='port path to the serial device')
+@click.option('-p', type=click.Path(), help='port path to the serial device')
 @click.option('-baud', help='baud rate of the serial communication')
 @click.option('-timeout', default=1, required=False, help='timeout of the connection')
 def read(port, baud, timeout):
