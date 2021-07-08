@@ -13,7 +13,7 @@ def listport():
     try:
         click.echo("Path\t\t\tDescription")
         for p in get_serial_device():
-            click.echo("%s\t\t%s" % (p.name, p.description))
+            click.echo("%s\t\t\t%s" % (p.name, p.description))
     except IOError as e:
         click.echo(e)
 
