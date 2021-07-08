@@ -11,9 +11,12 @@ def cli():
 def listport():
     """list all ports not with description 'n/a'."""
     try:
-        click.echo("Path\t\t\tDescription")
+        click.echo("Path\t\tDescription")
+        for _ in range(40):
+            click.echo("-", nl=False)
+        click.echo("")
         for p in get_serial_device():
-            click.echo("%s\t\t\t%s" % (p.name, p.description))
+            click.echo("%s\t\t%s" % (p.name, p.description))
     except IOError as e:
         click.echo(e)
 
