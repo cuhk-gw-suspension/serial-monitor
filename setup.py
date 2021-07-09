@@ -28,7 +28,7 @@ setup(
     author='LAM Yee Ching',  # Optional
     keywords='setuptools, development',  # Optional
     packages=find_packages(include=["serial-monitor", "serial-monitor.*",
-        "serialmon.*"]),
+        "serialmon*"]),
     python_requires='>=3.5, <4',
     install_requires=[
         'numpy >= 1.1',

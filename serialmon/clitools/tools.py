@@ -1,8 +1,10 @@
 import click
 
-from serialmon.utils.adaptUSBport import get_serial_device
-from serialmon.utils.log import print_serial_info
-from serialmon.monitor import app
+# __package__ = "serialmon"
+from ..utils.adaptUSBport import get_serial_device
+from ..utils.log import print_serial_info
+from ..monitor import app
+
 
 @click.group()
 def cli():
