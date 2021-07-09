@@ -1,5 +1,5 @@
-from utils.plotter import array2d_animate
-from utils.adaptUSBport import get_serial_device
+from .utils.plotter import array2d_animate
+from .utils.adaptUSBport import get_serial_device
 from matplotlib.figure import Figure
 from matplotlib import style
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
@@ -147,11 +147,11 @@ class Application(tk.Frame):
             self.master.after(1000, self._read_serial)
 
 
-def main():
+def app():
     root = tk.Tk()
     app = Application(master=root)
     app.mainloop()
 
 
 if __name__ == "__main__":
-    main()
+    main(
