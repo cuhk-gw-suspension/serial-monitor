@@ -50,7 +50,7 @@ class Application(tk.Frame):
         self.portmenu = tk.Menu(menubar, tearoff=0)
         menubar.add_cascade(label='Port', menu=self.portmenu)
 
-        self.baudlist = [9600, 14400, 19200, 57600, 115200, 1000000, 2000000]
+        self.baudlist = [9600, 14400, 19200, 57600, 115200, 500000, 1000000, 2000000]
         baudmenu = tk.Menu(menubar, tearoff=0)
         menubar.add_cascade(label='Baud', menu=baudmenu)
         for baud in self.baudlist:
