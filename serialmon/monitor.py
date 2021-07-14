@@ -20,7 +20,7 @@ class Application(tk.Frame):
 
         self.current_port = None
         self.current_baud = None
-        self.MAX_DATA_LENGTH = 50000
+        self.MAX_DATA_LENGTH = 500000
 
         self.create_graphs()  # create a figure to hold graphs
         self.create_widgets()  # create gui widgets
@@ -50,12 +50,12 @@ class Application(tk.Frame):
         self.portmenu = tk.Menu(menubar, tearoff=0)
         menubar.add_cascade(label='Port', menu=self.portmenu)
 
-        self.baudlist = [9600, 14400, 19200, 57600, 115200, 500000, 1000000, 2000000]
+        self.baudlist = [9600, 14400, 19200, 57600, 115200, 500000]
         baudmenu = tk.Menu(menubar, tearoff=0)
         menubar.add_cascade(label='Baud', menu=baudmenu)
         for baud in self.baudlist:
             baudmenu.add_command(label=baud, command=lambda x=baud: self._setbaud(x))
-        self.current_baud = self.baudlist[-2]
+        self.current_baud = self.baudlist[-1]
 
         menubar.add_command(label="Refresh", command=self.refresh_portlist)
 
@@ -122,28 +122,31 @@ class Application(tk.Frame):
         """try to read incoming serial print and store it in self._data_holder.
         """
         try:
-            line = self.ser.readline().decode("utf-8")
+            line = self.ser.readline().decode()
             line = literal_eval(line)
             if type(line) is tuple:
                 _temp = np.array(line, dtype=np.float64)
-                self.curve_label = ["column%d" % i for i in range(len(_temp))]
-
+                self.curve_label = ["column%d" % i for i in range(_temp.size)]
+            elif type(line) is int:
+                _temp = np.array(line, dtype=np.int32)
+                self.curve_label = ["column%d" % i for i in range(_temp.size)]
             elif type(line) is dict:
                 _temp = np.fromiter(line.items(), count=len(line))
                 self.curve_label = np.fromiter(line.keys(), count=len(line))
-            print(_temp)
+            else:
+                _temp = None
 
             # limiting array size of the _data_holder
             if self._data_holder is None:
-                self._data_holder = np.reshape(_temp, (1, len(_temp)))
+                self._data_holder = np.reshape(_temp, (1, _temp.size))
             elif len(self._data_holder) < self.MAX_DATA_LENGTH:
                 self._data_holder = np.vstack((self._data_holder, _temp))
             else:
                 self._data_holder = np.vstack((self._data_holder[1:], _temp))
 
             self.master.after(0, self._read_serial)
-        except Exception:
-            print("waiting data", end='\r')
+        except Exception as e:
+            print("waiting data:", repr(e))
             self.master.after(1000, self._read_serial)
 
 
