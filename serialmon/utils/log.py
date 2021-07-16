@@ -86,6 +86,10 @@ def print_serial_info(port_path=None, baud=1_000_000, timeout=1):
 
     with serial.Serial(port_path, baud, timeout=timeout) as ser:
         while True:
-            line = ser.readline().decode()
-            print(line, end="")
+            try:
+                line = ser.readline().decode("utf-8", "ignore")
+                print(line, end="")
+            except KeyboardInterrupt:
+                break
 
+    print("\rClosed", port_path)
