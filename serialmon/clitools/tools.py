@@ -2,7 +2,7 @@ import click
 
 # __package__ = "serialmon"
 from ..utils.adaptUSBport import get_serial_device
-from ..utils.log import print_serial_info
+from ..utils.log import print_serial_info,  print_int
 from ..monitor import app
 
 
@@ -40,6 +40,28 @@ def read(port, baud, timeout):
     elif type(port) is int:
         p = get_serial_device()
         print_serial_info(p[port].device, baud, timeout)
+    else:
+        raise TypeError("wrong instruction of --port option.")
+
+@cli.command()
+@click.option('-p','--port',  help='port path to the serial device,\n \
+                                    can be path string or number from serial list')
+@click.option('-b', '--baud', type=int, help='baud rate of the serial communication')
+@click.option('--timeout', default=1, required=False, help='timeout of the connection')
+def readInt(port, baud, timeout):
+    """Read and print information from a serial port indefinitely."""
+    click.echo("start reading...")
+    click.echo("Press ctrl C to escape.")
+    try:
+        port = int(port)
+    except Exception:
+        pass
+
+    if type(port) is str:
+        print_serial_info(port, baud, timeout)
+    elif type(port) is int:
+        p = get_serial_device()
+        print_int(p[port].device, baud, timeout)
     else:
         raise TypeError("wrong instruction of --port option.")
 
